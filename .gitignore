@@ -1,0 +1,40 @@
+# Python build
+__pycache__
+*.py[cod]
+/build/
+/dist/
+*.egg-info/
+*.egg
+.eggs/
+*.whl
+
+# Textio build
+venv*/
+pips3-master.tar.gz
+.venv
+.dev
+.assets
+.build
+.test
+.lint
+.code
+.devinfra
+
+# Custom environment vars
+.env
+
+# Testing
+.cache/
+.coverage
+htmlcov/
+pytest-out.xml
+.pytest_cache/
+
+# OSX
+.DS_Store
+
+# Artifacts
+temp/
+
+# Custom
+scratch
