@@ -19,7 +19,7 @@ def find_version(*file_paths):
     raise RuntimeError("Unable to find version string.")
 
 
-pkg = "textio-pulley"
+pkg = "textio-parallel"
 setup(
     name=pkg,
     version=find_version(pkg.replace("-", "_"), "__init__.py"),
