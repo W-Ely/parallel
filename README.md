@@ -1,4 +1,4 @@
-# textio-pulley
-Textio Pulley
+#pulley
+Pulley
 
 Library to handle parallelizing work. 
