@@ -1,7 +1,7 @@
 .PHONY: help clean clean-all clean-assets upgrade-dev-deps upgrade-deps dev build test code	\
 	devinfra deploy release deploy-prod
 
-pkg := textio-pulley
+pkg := parallel
 codedir := $(shell echo $(pkg) | sed 's/-/_/'g)
 testdir := tests
 
@@ -19,10 +19,8 @@ devinfra-name := $(pkg)-devinfra
 devinfra-circleci-user := bot-ci-$(pkg)
 
 # Dev environment
-assume-role ?= textioaws assumerole --config $(config)
+assume-role ?= aws assumerole --config $(config)
 
-# cite: https://marmelab.com/blog/2016/02/29/auto-documented-makefile.html
-# automatically documents the makefile, by outputing everything behind a ##
 help:
 	@grep -E '^[0-9a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
 
@@ -38,7 +36,7 @@ clean:  ## Clean build artifacts but NOT downloaded assets
 	rm -rf *.whl
 	rm -rf $(pkg)-*
 
-	# Textio build
+	# build
 	rm -rf venv*
 	rm -f pips3-master.tar.gz
 	rm -f .venv
@@ -64,7 +62,7 @@ venv:
 .venv: venv
 	venv/bin/pip install --upgrade pip wheel setuptools --disable-pip-version-check
 	venv/bin/pip install --progress-bar off "awscli~=1.0"
-	$(aws) s3 cp s3://textio-pypi-us-west-2/pypi/0/dev/pips3/pips3-master.tar.gz .
+	$(aws) s3 cp s3://pypi-us-west-2/pypi/0/dev/pips3/pips3-master.tar.gz .
 	venv/bin/pip install --progress-bar off pips3-master.tar.gz
 	$(pip) install --upgrade pips3
 	touch .venv
