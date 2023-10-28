@@ -19,14 +19,14 @@ def find_version(*file_paths):
     raise RuntimeError("Unable to find version string.")
 
 
-pkg = "textio-parallel"
+pkg = "parallel"
 setup(
     name=pkg,
     version=find_version(pkg.replace("-", "_"), "__init__.py"),
     description="Parallelization Library",
-    url="https://github.com/textioHQ/{}/".format(pkg),
+    url="https://github.com/W-Ely/{}/".format(pkg),
     author="Ely Paysinger",
-    author_email="ely@textio.com",
+    author_email="paysinger@gmail.com",
     packages=find_packages(),
     include_package_data=True,  # Use MANIFEST.in for package data
     install_requires=[],

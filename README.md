@@ -1,4 +1,4 @@
-# Textio Parallel
+# SParallel
 
 Python Library to handle parallelizing I/O bound work with queues and threads.
 

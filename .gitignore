@@ -8,9 +8,8 @@ __pycache__
 .eggs/
 *.whl
 
-# Textio build
+# build
 venv*/
-pips3-master.tar.gz
 .venv
 .dev
 .assets
@@ -18,7 +17,6 @@ pips3-master.tar.gz
 .test
 .lint
 .code
-.devinfra
 
 # Custom environment vars
 .env
